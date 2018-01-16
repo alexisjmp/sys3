@@ -27,11 +27,20 @@
         data = ""
         sendajax(marco, ruta, data)
     }
-    function mostrar_detalle(){
+
+    function mostrar_detalle() {
         marco = "marco_detalle";
-        ruta = "detalle_principal.php";
+        ruta = "detalle.php";
         data = ""
-        sendajax(marco,ruta,data)
+        sendajax(marco, ruta, data)
+         mostrar_valores();
+    }
+
+    function mostrar_valores() {
+        marco = "marco_valores";
+        ruta = "valores.php";
+        data = ""
+        sendajax(marco, ruta, data)
     }
 
     function sendajax(marco, ruta, data) {
@@ -49,7 +58,7 @@
 </script>
 <body onload="openmodal()">
     <div class="panel panel-default">
-        <div class="panel-heading">Panel Heading</div>
+        <div class="panel-heading">Cabezera</div>
         <div class="panel-body">
             <div class="row">
 
@@ -67,15 +76,43 @@
                 <div class="col-md-8" id="marco_origen">
 
                 </div>
-              
-
+                <div class=" row col-md-4 ">
+                    <button class="btn btn-info btn-mid" id="myBtn2" onclick="mostrar_detalle()">
+                        Mostrar Detalle
+                    </button>
+                </div>
             </div>
-            <div class="col-md-2 col-md-offset-0" id="marco_detalle">        
-            </div>
-
         </div>
     </div>
 
+    <div class="row ">
+        <div class="panel-group ">
+            <div class="panel panel-info ">
+                <div class="panel-heading "><a data-toggle="collapse" href="#collapse1">Detalles</a></div>   
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body "  >
+                        <div class="row">
+                            <div class="col-md-7" id="marco_detalle">        
+                            </div>
+                            <div class="col-md-5" >  
+                                <div class="panel-group ">
+                                    <div class="panel panel-info ">
+                                        <div class="panel-heading "><a data-toggle="collapse" href="#collapse13">Detalles</a></div>   
+                                        <div id="collapse13" class="panel-collapse collapse">
+                                            <div class="panel-body "  >
+                                                <div id="marco_valores">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="MyModal"  role="dialog">
         <div class="modal-dialog modal-lg">
@@ -91,12 +128,10 @@
                     <div class="row form-group">
                         <label class=" col-xs-12 col-md-2 control-label">Documento</label>
                         <div class="col-xs-10 col-md-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-xs-2 col-md-1">
-                            <button type="button" class="btn btn-info btn-md center-block">
-                                <span class="glyphicon glyphicon-search"></span> 
-                            </button>
+                            <select class="form-control">
+                                <option>101</option>
+                                <option>201</option>
+                            </select>
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <input type="text" class="form-control" disabled="">
@@ -130,19 +165,17 @@
                                 <span class="glyphicon glyphicon-search"></span> Buscar documento 
                             </button>
                         </div>
-                        <div class="col-xs-12 col-md-3 col-md-offset-1">
-                            <button type="button"  onclick="mostrar_detalle()" class="btn btn-info btn-md">
-                                <span class="glyphicon glyphicon-ok"></span> Buscar detalle 
-                            </button>
-                        </div>
-                        <label class=" col-xs-12 col-md-3 control-label">Nombre del Documento</label>
+
 
                     </div>
+                    <div id="marco_documentos">
+
+                    </div>   
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     </div>
-                    
-                    
+
+
                 </div>
 
             </div>

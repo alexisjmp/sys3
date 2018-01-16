@@ -10,10 +10,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse1">Origen</a>
+                        <a data-toggle="collapse" href="#collapse12">Origen</a>
                     </h4>
                 </div>
-                <div id="collapse1" class="panel-collapse collapse">
+                <div id="collapse12" class="panel-collapse collapse">
                     <div class="panel-body">
 
                         <!--                        Primera linea-->
