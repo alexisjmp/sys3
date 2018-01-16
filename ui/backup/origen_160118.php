@@ -5,7 +5,13 @@
  * and open the template in the editor.
  */
 ?>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<div class="container">
+    <div class="row">
         <div class="panel-group">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -134,4 +140,6 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
