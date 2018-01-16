@@ -27,6 +27,12 @@
         data = ""
         sendajax(marco, ruta, data)
     }
+    function mostrar_detalle(){
+        marco = "marco_detalle";
+        ruta = "detalle_principal.php";
+        data = ""
+        sendajax(marco,ruta,data)
+    }
 
     function sendajax(marco, ruta, data) {
 
@@ -61,7 +67,10 @@
                 <div class="col-md-8" id="marco_origen">
 
                 </div>
+              
 
+            </div>
+            <div class="col-md-2 col-md-offset-0" id="marco_detalle">        
             </div>
 
         </div>
@@ -121,12 +130,19 @@
                                 <span class="glyphicon glyphicon-search"></span> Buscar documento 
                             </button>
                         </div>
+                        <div class="col-xs-12 col-md-3 col-md-offset-1">
+                            <button type="button"  onclick="mostrar_detalle()" class="btn btn-info btn-md">
+                                <span class="glyphicon glyphicon-ok"></span> Buscar detalle 
+                            </button>
+                        </div>
                         <label class=" col-xs-12 col-md-3 control-label">Nombre del Documento</label>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     </div>
+                    
+                    
                 </div>
 
             </div>
