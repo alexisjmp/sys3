@@ -160,24 +160,26 @@ if (!isset($_SESSION["usuario"])) {
                                             <td>Nombre</td>
                                             <td>Fecha Nacimiento</td>
                                             <td>Descripcion</td>
+                                            <td>descuento</td>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr id="fila1">
+                                        <tr id="fila0">
                                             <td> <span onclick="editar(this)"  class="glyphicon glyphicon-pencil small"></span> </td>
                                             <td id="holas"><span onclick="remover(this)" class="glyphicon glyphicon-remove small"></span></td>
                                             <td>   
                                                 <input  type="checkbox">
                                             </td>
                                             <td> 
-                                                <input id="txtfila1" type="text" style="width: 60" disabled="" value="hola">     
+                                                <input id="txtfila0" type="text" style="width: 60" disabled="" value="hola">     
                                             </td>
                                             <td>caja/24</td>
                                             <td>002000000000001</td>
                                             <td>Escobas y guantes</td>
                                             <td>27/08/2009</td>
                                             <td>utiles de aseo</td>
+                                            <td> 2</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -198,6 +200,8 @@ if (!isset($_SESSION["usuario"])) {
         </div>
 
         <script>
+            var num_fila=1;
+            
             function calcular_total() {
 
                 importe_total = 0
@@ -210,27 +214,41 @@ if (!isset($_SESSION["usuario"])) {
             }
             function agrega()
             {
-                $("tbody").append("<tr id='fila2'>" +
+                alert(num_fila);
+                valor = $("#txt_descuento").val();
+                cantidad = parseInt(valor);
+                $("tbody").append("<tr id='fila"+ num_fila +"'>" +
                         "<td> <span onclick='editar(this)'  class='glyphicon glyphicon-pencil small'></span></td>" +
                         "<td><span onclick='remover(this)' class='glyphicon glyphicon-remove small'></span></td>" +
                         "<td>" +
                         "<input type='checkbox'>" +
                         "</td>" +
-                        "<td><input id='txtfila2' type='text' style='width: 60' disabled></td>" +
+                        "<td><input id='txtfila"+ num_fila +"' type='text' style='width: 60' disabled></td>" +
                         "<td>caja/24</td>" +
                         "<td>002000000000001</td>" +
                         "<td>Escobas y guantes</td>" +
                         "<td>27/08/2009</td>" +
                         "<td>utiles de aseo</td>" +
+                        "<td><input id='txtdescuentofila"+ num_fila +"' type='text' style='width: 60' value="+cantidad+" disabled></td>"+
                         "</tr>");
+                num_fila++;
+                calcular_total();
+                $("#txt_descuento").val('0');
             }
 
 
             function remover(elemento)
             {
                 fila_id = elemento.parentNode.parentNode.id;
+                alert(fila_id);
+                resta = $("#txtdescuento"+ fila_id).val();
+                restaint = parseInt(resta);
+                            importe_total = eval($("#total").val()) - restaint;
+                $("#total").val(importe_total);
+                
+                
                 $("#" + fila_id).remove();
-
+                 
             }
 
             function editar(elemento)
@@ -238,6 +256,8 @@ if (!isset($_SESSION["usuario"])) {
                 alert("hola00");
                 fila_id = elemento.parentNode.parentNode.id;
                 $("#txt" + fila_id).attr('disabled', false);
+                
+               
 
                 //alert(($($("#"+fila_id).eq(3))+":input").val());
                 //$($("#"+fila_id).eq(3)+":input").prop( "disabled", false ); 
