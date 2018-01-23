@@ -191,7 +191,7 @@ if (!isset($_SESSION["usuario"])) {
                             </div>
 
                             <div class="row form-group">
-                                <label for="total">Total: <input type="text" id="total" value="0"> </label>
+                                <label for="total">Total: <input type="text" id="total" value="0" disabled> </label>
                             </div>
                         </div>
                     </div>
@@ -204,17 +204,21 @@ if (!isset($_SESSION["usuario"])) {
             
             function calcular_total() {
 
-                importe_total = 0
+                importe_total = 0;
                 $(".txt_campo").each(
                         function (index, value) {
-                            importe_total = importe_total + eval($(this).val()) + eval($("#total").val());
+                            suma1 = parseInt($("#txt_descuento").val());
+                            suma2 = parseInt($("#total").val());
+                            importe_total =  suma1 + suma2;
+                            //alert(suma1);
+                            //alert(suma2);
                         }
                 );
                 $("#total").val(importe_total);
             }
             function agrega()
             {
-                alert(num_fila);
+                //alert(num_fila);
                 valor = $("#txt_descuento").val();
                 cantidad = parseInt(valor);
                 $("tbody").append("<tr id='fila"+ num_fila +"'>" +
