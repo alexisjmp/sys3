@@ -92,60 +92,59 @@ if (!isset($_SESSION["usuario"])) {
             </nav>
         </div>
         <div class="container">
+            <!--inicio panel-->
             <div class="panel-group">
-                <div class="col-md-10 col-md-offset-1 col-xs-6 ">
-                    <div class="panel-info">    
+                <div class="col-md-10 col-md-offset-1 col-xs-12 ">
+                    <div class="panel panel-primary">    
                         <div class="panel-heading">Orden de  compra</div>    
                         <div class="panel-body">
                             <label id="" hidden></label>
                             <div class="row form-group">
-                                <div class="col-md-8 col-md-offset-0 col-xs-6 ">
+                                <div class="col-md-8 col-md-offset-0 col-xs-10 ">
                                     <label class=" col-md-6 col-xs-12 control-label" for="desc">Descuento de producto :</label>
                                 </div>
                             </div><!-- fin la primera fila -->
-                            <div class="  form-group">
-                                <div class="col-md-4 col-md-offset-0 col-xs-6 ">
-                                    <div class="col-md-7 col-md-offset-0 col-xs-6 ">
-                                        <label  >Porcentaje (%)
+                            <div class=" row form-group">
+                                <div class="col-md-4 col-md-offset-0 col-xs-12 ">
+                                    <div class="col-md-7 col-md-offset-0 col-xs-7 ">
+                                        <label  >Porcentaje(%)
                                             <input  class="radio-inline" id="radio_descuento"  name="radio_descuento" type="radio"   value="1" checked="checked">
                                         </label> 
                                     </div>   
-                                    <div class="col-md-7 col-md-offset-0   ">
-                                        <label  >Dinero ($)
-                                            <input  class="radio-inline" id="radio_descuento"  name="radio_descuento" type="radio"   value="2" checked="checked">
+                                    <div class="col-md-7 col-md-offset-0 col-xs-5  ">
+                                        <label  >Dinero($)
+                                            <input  class="radio-inline" id="radio_descuento"  name="radio_descuento" type="radio"   value="2" >
                                         </label>
                                     </div>
 
                                 </div>
-                                <div class="col-md-4 col-md-offset-0 col-xs-6 ">
-                                    <div class="col-md-7 col-md-offset-0 col-xs-6 ">
-                                        <label  >IVA (%)
+                                <div class="col-md-4 col-md-offset-0 col-xs-12 ">
+                                    <div class="col-md-7 col-md-offset-0 col-xs-5 ">
+                                        <label  >IVA(%)
                                             <input  class="radio-inline" id="radio_iva"  name="radio_iva" type="radio"   value="3" checked="checked">
                                         </label> 
                                     </div>   
-                                    <div class="col-md-7 col-md-offset-0   ">
-                                        <label  >Extension ($)
-                                            <input  class="radio-inline" id="radio_iva"  name="radio_iva" type="radio"   value="4" checked="checked">
+                                    <div class="col-md-7 col-md-offset-0 col-xs-7 ">
+                                        <label  >Extension($)
+                                            <input  class="radio-inline" id="radio_iva"  name="radio_iva" type="radio"   value="4">
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-4  col-xs-6 row ">
-                                    <label class=" col-md-6 col-xs-12 control-label row" for="desc">Cantidad de descuento:</label>
-                                    <div class="col-md-6 col-xs-12 row ">
+                                <div class="col-md-2  col-xs-12 form-group   ">
+                                    <label class=" col-md-7 col-xs-7 control-label " for="desc">Cantidad:</label>
+                                    <div class="  col-md-3 col-xs-7    ">
                                         <input type="text" class="txt_campo" id="txt_descuento" class="form-control"   placeholder="" pattern="\d{3,8}" required > 
                                     </div>
-
                                 </div>
-                                <div class="row"></div>    
                             </div><!-- fin la segunda fila -->
 
-                            <div class=" row form-group">
-                                <div class="col-md-4 col-md-offset-8  col-xs-6">
+                            <div class="row form-group">
+                                <div class="col-md-4 col-md-offset-8  col-xs-12">
                                     <button type="button" title="Aceptar"  class="btn btn-info "onclick=" agrega()"> <span  class="glyphicon glyphicon-ok small"></span>  agregar</button>
                                     <button type="button" title=Limpiar"  class="btn btn-danger " onclick="limpiar()"> <span  class="glyphicon glyphicon-remove small"></span>  cancelar</button>
                                 </div>
                             </div>
-
+                            <div class="row form-group"></div>
                             <div class="row form-group table-responsive" style="width: 920px; height: 200px; overflow-y: scroll;">
 
                                 <table class="table-bordered table-condensed">
@@ -187,11 +186,14 @@ if (!isset($_SESSION["usuario"])) {
                             </div>
 
                             <div class="row form-group">
-                                <label class=" col-md-6 col-xs-12 control-label" for="desc">Totales:</label>
+                                <label class=" col-md-6 col-xs-12 control-label" for="desc">Cuentas:</label>
                             </div>
 
-                            <div class="row form-group">
-                                <label for="total">Total: <input type="text" id="total" value="0" disabled> </label>
+                            <div class="row form-group col-md-12 col-xs-12">
+                                <label for="total">Total:<input type="text" id="total" value="0" disabled> </label>
+                            </div>
+                            <div class=" form-group col-md-12 col-xs-12">
+                                <label for="total">iva:<input  type="text" id="impuesto" value="0" disabled> </label>
                             </div>
                         </div>
                     </div>
@@ -201,7 +203,22 @@ if (!isset($_SESSION["usuario"])) {
 
         <script>
             var num_fila=1;
-            
+            function iva(){
+                total = 0;
+                //var selected = $("input[type='radio'][name='radio_iva']:checked");
+                    //if (selected.length > 0) { 
+                        //radio_iva = selected.val();
+                      $(".txt_campo").each(
+                        function (index, value) {
+                        suma1 = parseInt($("#txt_descuento").val());
+                        suma2 = parseInt($("#impuesto").val());
+                        impuesto = parseFloat(suma1 * 0.19);
+                        total = (impuesto+ suma1)+suma2;
+                        }
+                );
+                    //}
+                    $("#impuesto").val(total);
+            }
             function calcular_total() {
 
                 importe_total = 0;
@@ -227,17 +244,19 @@ if (!isset($_SESSION["usuario"])) {
                         "<td>" +
                         "<input type='checkbox'>" +
                         "</td>" +
-                        "<td><input id='txtfila"+ num_fila +"' type='text' style='width: 60' disabled></td>" +
+                        "<td><input id='txtfila"+ num_fila +"' type='text' onblur='unit(this)'  style='width: 60' disabled></td>" +
                         "<td>caja/24</td>" +
                         "<td>002000000000001</td>" +
                         "<td>Escobas y guantes</td>" +
                         "<td>27/08/2009</td>" +
                         "<td>utiles de aseo</td>" +
-                        "<td><input id='txtdescuentofila"+ num_fila +"' type='text' style='width: 60' value="+cantidad+" disabled></td>"+
+                        "<td><input id='txtdescuentofila"+ num_fila +"' type='text'  style='width: 60' value="+cantidad+" disabled></td>"+
                         "</tr>");
                 num_fila++;
                 calcular_total();
+                iva();
                 $("#txt_descuento").val('0');
+                
             }
 
 
@@ -247,7 +266,10 @@ if (!isset($_SESSION["usuario"])) {
                 alert(fila_id);
                 resta = $("#txtdescuento"+ fila_id).val();
                 restaint = parseInt(resta);
-                            importe_total = eval($("#total").val()) - restaint;
+                    importe_total = eval($("#total").val()) - restaint;
+                calculo = parseFloat(suma1 * 0.19) + restaint;    
+                    impuesto = eval($("#impuesto").val()) - calculo;
+                $("#impuesto").val(impuesto);    
                 $("#total").val(importe_total);
                 
                 
@@ -260,12 +282,42 @@ if (!isset($_SESSION["usuario"])) {
                 alert("hola00");
                 fila_id = elemento.parentNode.parentNode.id;
                 $("#txt" + fila_id).attr('disabled', false);
-                
                
+
 
                 //alert(($($("#"+fila_id).eq(3))+":input").val());
                 //$($("#"+fila_id).eq(3)+":input").prop( "disabled", false ); 
                 //$('ul li').eq(5); 
+            }
+            function unit(elemento){
+                fila_id = elemento.parentNode.parentNode.id;
+               unitario = parseInt($("#txt"+ fila_id).val());
+                cantidad = parseInt($("#txtdescuento"+ fila_id).val()); 
+                total = unitario * cantidad;
+                //alert(cantidad);
+                //alert(unitario);
+                //alert( total);
+                 $("#txtdescuento"+fila_id).val(total);
+                 
+                 importe_total = 0;
+                
+                            
+                            suma1 = parseInt($("#txtdescuento"+ fila_id).val());
+                            suma2 = parseInt($("#total").val());
+                            //alert(suma2);
+                            //alert(cantidad);
+                            //alert(suma1);
+                            importe_total =  suma2-cantidad+suma1  ;
+                
+                impuesto = parseFloat(importe_total * 0.19) + importe_total;
+                alert(impuesto);
+                        
+                            
+               
+                $("#total").val(importe_total);
+                $("#impuesto").val(impuesto);
+                 
+        
             }
 
         </script>
