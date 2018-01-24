@@ -145,8 +145,7 @@ if (!isset($_SESSION["usuario"])) {
                                 </div>
                             </div>
                             <div class="row form-group"></div>
-                            <div class="row form-group table-responsive" style="width: 920px; height: 200px; overflow-y: scroll;">
-
+                            <div class="row form-group " style="overflow-y: scroll;">
                                 <table class="table-bordered table-condensed">
                                     <thead class="">
                                         <tr>
@@ -202,22 +201,22 @@ if (!isset($_SESSION["usuario"])) {
         </div>
 
         <script>
-            var num_fila=1;
-            function iva(){
+            var num_fila = 1;
+            function iva() {
                 total = 0;
                 //var selected = $("input[type='radio'][name='radio_iva']:checked");
-                    //if (selected.length > 0) { 
-                        //radio_iva = selected.val();
-                      $(".txt_campo").each(
+                //if (selected.length > 0) { 
+                //radio_iva = selected.val();
+                $(".txt_campo").each(
                         function (index, value) {
-                        suma1 = parseInt($("#txt_descuento").val());
-                        suma2 = parseInt($("#impuesto").val());
-                        impuesto = parseFloat(suma1 * 0.19);
-                        total = (impuesto+ suma1)+suma2;
+                            suma1 = parseInt($("#txt_descuento").val());
+                            suma2 = parseInt($("#impuesto").val());
+                            impuesto = parseFloat(suma1 * 0.19);
+                            total = (impuesto + suma1) + suma2;
                         }
                 );
-                    //}
-                    $("#impuesto").val(total);
+                //}
+                $("#impuesto").val(total);
             }
             function calcular_total() {
 
@@ -226,7 +225,7 @@ if (!isset($_SESSION["usuario"])) {
                         function (index, value) {
                             suma1 = parseInt($("#txt_descuento").val());
                             suma2 = parseInt($("#total").val());
-                            importe_total =  suma1 + suma2;
+                            importe_total = suma1 + suma2;
                             //alert(suma1);
                             //alert(suma2);
                         }
@@ -238,25 +237,25 @@ if (!isset($_SESSION["usuario"])) {
                 //alert(num_fila);
                 valor = $("#txt_descuento").val();
                 cantidad = parseInt(valor);
-                $("tbody").append("<tr id='fila"+ num_fila +"'>" +
+                $("tbody").append("<tr id='fila" + num_fila + "'>" +
                         "<td> <span onclick='editar(this)'  class='glyphicon glyphicon-pencil small'></span></td>" +
                         "<td><span onclick='remover(this)' class='glyphicon glyphicon-remove small'></span></td>" +
                         "<td>" +
                         "<input type='checkbox'>" +
                         "</td>" +
-                        "<td><input id='txtfila"+ num_fila +"' type='text' onblur='unit(this)'  style='width: 60' disabled></td>" +
+                        "<td><input id='txtfila" + num_fila + "' type='text' onblur='unit(this)'  style='width: 60' disabled></td>" +
                         "<td>caja/24</td>" +
                         "<td>002000000000001</td>" +
                         "<td>Escobas y guantes</td>" +
                         "<td>27/08/2009</td>" +
                         "<td>utiles de aseo</td>" +
-                        "<td><input id='txtdescuentofila"+ num_fila +"' type='text'  style='width: 60' value="+cantidad+" disabled></td>"+
+                        "<td><input id='txtdescuentofila" + num_fila + "' type='text'  style='width: 60' value=" + cantidad + " disabled></td>" +
                         "</tr>");
                 num_fila++;
                 calcular_total();
                 iva();
                 $("#txt_descuento").val('0');
-                
+
             }
 
 
@@ -264,17 +263,17 @@ if (!isset($_SESSION["usuario"])) {
             {
                 fila_id = elemento.parentNode.parentNode.id;
                 alert(fila_id);
-                resta = $("#txtdescuento"+ fila_id).val();
+                resta = $("#txtdescuento" + fila_id).val();
                 restaint = parseInt(resta);
-                    importe_total = eval($("#total").val()) - restaint;
-                calculo = parseFloat(suma1 * 0.19) + restaint;    
-                    impuesto = eval($("#impuesto").val()) - calculo;
-                $("#impuesto").val(impuesto);    
+                importe_total = eval($("#total").val()) - restaint;
+                calculo = parseFloat(suma1 * 0.19) + restaint;
+                impuesto = eval($("#impuesto").val()) - calculo;
+                $("#impuesto").val(impuesto);
                 $("#total").val(importe_total);
-                
-                
+
+
                 $("#" + fila_id).remove();
-                 
+
             }
 
             function editar(elemento)
@@ -282,42 +281,42 @@ if (!isset($_SESSION["usuario"])) {
                 alert("hola00");
                 fila_id = elemento.parentNode.parentNode.id;
                 $("#txt" + fila_id).attr('disabled', false);
-               
+
 
 
                 //alert(($($("#"+fila_id).eq(3))+":input").val());
                 //$($("#"+fila_id).eq(3)+":input").prop( "disabled", false ); 
                 //$('ul li').eq(5); 
             }
-            function unit(elemento){
+            function unit(elemento) {
                 fila_id = elemento.parentNode.parentNode.id;
-               unitario = parseInt($("#txt"+ fila_id).val());
-                cantidad = parseInt($("#txtdescuento"+ fila_id).val()); 
+                unitario = parseInt($("#txt" + fila_id).val());
+                cantidad = parseInt($("#txtdescuento" + fila_id).val());
                 total = unitario * cantidad;
                 //alert(cantidad);
                 //alert(unitario);
                 //alert( total);
-                 $("#txtdescuento"+fila_id).val(total);
-                 
-                 importe_total = 0;
-                
-                            
-                            suma1 = parseInt($("#txtdescuento"+ fila_id).val());
-                            suma2 = parseInt($("#total").val());
-                            //alert(suma2);
-                            //alert(cantidad);
-                            //alert(suma1);
-                            importe_total =  suma2-cantidad+suma1  ;
-                
+                $("#txtdescuento" + fila_id).val(total);
+
+                importe_total = 0;
+
+
+                suma1 = parseInt($("#txtdescuento" + fila_id).val());
+                suma2 = parseInt($("#total").val());
+                //alert(suma2);
+                //alert(cantidad);
+                //alert(suma1);
+                importe_total = suma2 - cantidad + suma1;
+
                 impuesto = parseFloat(importe_total * 0.19) + importe_total;
                 alert(impuesto);
-                        
-                            
-               
+
+
+
                 $("#total").val(importe_total);
                 $("#impuesto").val(impuesto);
-                 
-        
+
+
             }
 
         </script>
