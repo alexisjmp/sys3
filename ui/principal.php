@@ -97,7 +97,7 @@
                             <div class="col-md-5" >  
                                 <div class="panel-group ">
                                     <div class="panel panel-info ">
-                                        <div class="panel-heading "><a data-toggle="collapse" href="#collapse13">Detalles</a></div>   
+                                        <div class="panel-heading "><a data-toggle="collapse" href="#collapse13">Valores</a></div>   
                                         <div id="collapse13" class="panel-collapse collapse">
                                             <div class="panel-body "  >
                                                 <div id="marco_valores">
