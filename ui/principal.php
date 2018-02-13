@@ -19,6 +19,7 @@
             //   loadDoc();
 
         });
+        mostrar_detalle();
     }
 
     function mostrar_origen() {
@@ -56,7 +57,7 @@
         xhttp.send(data);
     }
 </script>
-<body onload="openmodal()">
+<body onload="openmodal()" >
     <div class="panel panel-default">
         <div class="panel-heading">Cabezera</div>
         <div class="panel-body">
@@ -76,46 +77,49 @@
                 <div class="col-md-8" id="marco_origen">
 
                 </div>
-                <div class="row form-group col-md-4 col-sm-12 col-lg-4 col-xs-12 ">
-                    <button class="btn btn-info btn-mid" id="myBtn2" onclick="mostrar_detalle()">
+<!--                <div class="row form-group col-md-4 col-sm-12 col-lg-4 col-xs-12 " >
+                    <button class="btn btn-info btn-mid" id="myBtn2" >
                         Mostrar Detalle
                     </button>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
 
     <div class="row ">
         <div class="panel-group ">
+            <div class="col-md-7 col-lg-7 col-sm-12  col-xs-12">
             <div class="panel panel-info ">
-                <div class="panel-heading "><a data-toggle="collapse" href="#collapse1">Detalles</a>
+                <div class="panel-heading ">Detalles
                     <button class="btn btn-info btn-sm " id="myBtn2"  data-toggle="modal" data-target="#MyModal2" data-backdrop="true">
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
                 </div>   
-                <div id="collapse1" class="panel-collapse collapse">
+<!--                <div id="collapse1" class="panel-collapse collapse">-->
                     <div class="panel-body "  >
                         <div class="row">
                             
-                            <div class="col-md-7 col-lg-7 col-sm-12  col-xs-12" id="marco_detalle">        
+                            <div class="col-md-12 col-lg-12 col-sm-12  col-xs-12" id="marco_detalle">        
                             </div>
-                            <div class="col-md-5 col-lg-5 col-sm-12  col-xs-12" >  
+                            
+                        </div>
+                    </div>
+<!--                </div>-->
+            </div>
+                </div>
+            <div class="col-md-5 col-lg-5 col-sm-12  col-xs-12" >  
                                 <div class="panel-group ">
                                     <div class="panel panel-info ">
-                                        <div class="panel-heading "><a data-toggle="collapse" href="#collapse13">Valores</a></div>   
-                                        <div id="collapse13" class="panel-collapse collapse">
+                                        <div class="panel-heading ">valores</div>   
+<!--                                        <div id="collapse13" class="panel-collapse collapse">-->
                                             <div class="panel-body "  >
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="marco_valores">
                                                 </div>
                                             </div>
-                                        </div>
+<!--                                        </div>-->
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Modal -->
