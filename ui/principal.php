@@ -58,33 +58,24 @@
     }
 </script>
 <body onload="openmodal()" >
-    <div class="panel panel-default">
+<!--    <div class="panel panel-default">
         <div class="panel-heading">Cabezera</div>
         <div class="panel-body">
             <div class="row">
 
-                <div class=" row form-group col-md-4 col-sm-12 col-lg-4 col-xs-12">
-                    <div class="col-md-2 col-sm-2 col-lg-2 col-xs-3">
-                        <button class="btn btn-info btn-md " id="myBtn"  data-toggle="modal" data-target="#MyModal" data-backdrop="true">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-8 col-sm-8 col-lg-8 col-xs-8">
-                        <input class="form-control" type="text">
-                    </div>
-                </div>
+                
 
                 <div class="col-md-8" id="marco_origen">
 
                 </div>
-<!--                <div class="row form-group col-md-4 col-sm-12 col-lg-4 col-xs-12 " >
+                <div class="row form-group col-md-4 col-sm-12 col-lg-4 col-xs-12 " >
                     <button class="btn btn-info btn-mid" id="myBtn2" >
                         Mostrar Detalle
                     </button>
-                </div>-->
+                </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="row ">
         <div class="panel-group ">
@@ -94,7 +85,18 @@
                     <button class="btn btn-info btn-sm " id="myBtn2"  data-toggle="modal" data-target="#MyModal2" data-backdrop="true">
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
-                </div>   
+                    <div class="col-md-2 col-sm-8 col-lg-2 col-xs-8">
+                        <input class="form-control" type="text">
+                    </div>
+<!--                    <div class="col-md-2 col-sm-2 col-lg-2 col-xs-3">-->
+                        <button class="btn btn-info btn-md " id="myBtn"  data-toggle="modal" data-target="#MyModal" data-backdrop="true">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+<!--                    </div>-->
+                    
+                    
+                </div>
+                
 <!--                <div id="collapse1" class="panel-collapse collapse">-->
                     <div class="panel-body "  >
                         <div class="row">
@@ -110,7 +112,11 @@
             <div class="col-md-5 col-lg-5 col-sm-12  col-xs-12" >  
                                 <div class="panel-group ">
                                     <div class="panel panel-info ">
-                                        <div class="panel-heading ">valores</div>   
+                                        <div class="panel-heading ">valores 
+                                        <button class="btn btn-info btn-sm " id="myBtn2"  data-toggle="modal" data-target="#MyModalOrigen" data-backdrop="true">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                        </button></div>   
+                                        
 <!--                                        <div id="collapse13" class="panel-collapse collapse">-->
                                             <div class="panel-body "  >
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="marco_valores">
@@ -262,6 +268,161 @@
                     </div>
 
 
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="modal fade" id="MyModalOrigen"  role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Origen</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row form-group">
+                            <label class=" col-xs-12 col-md-2 control-label">Procedencia de las Mercancias</label>
+                            <div class="col-xs-10 col-md-2">
+                                <div class="row form-group">
+                                    <div class="col-xs-10 col-md-8">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+<!--                            <div class="col-xs-2 col-md-1">
+                                <button type="button" class="btn btn-info btn-md center-block">
+                                    <span class="glyphicon glyphicon-search"></span> 
+                                </button>
+                            </div>-->
+                            <div class="col-xs-12 col-md-3">
+                               <select  class="form-control"id="slmercancia" name="slmercancia">
+                                            <option value=""></option>
+                                            <option value="0">0 </option>
+                                            <option value="1">1 </option>
+                                        </select>
+                            </div>
+                        </div>
+                        <!--fin priera linea-->
+                        <!--                  segunda linea      -->
+                        <div class="row form-group">
+                            <label class=" col-xs-12 col-md-2 control-label">Pais de Origen</label>
+                            <div class="col-xs-10 col-md-2">
+                                <div class="row">
+                                    <div class="col-xs-10 col-md-8">
+                                        <input type="text" class="form-control" placeholder="0"  onkeypress='return ((event.charCode <= 96 || event.charCode >= 123) && (event.charCode <= 64 || event.charCode >= 91))'>
+                                    </div>
+                                </div>    
+                            </div>
+<!--                            <div class="col-xs-2 col-md-1">
+                                <button type="button" class="btn btn-info btn-md center-block">
+                                    <span class="glyphicon glyphicon-search"></span> 
+                                </button>
+                            </div>-->
+                            <div class="col-xs-12 col-md-3">
+                                <select  class="form-control"id="slorigen" name="slorigen">
+                                            <option value=""></option>
+                                            <option value="0">0 </option>
+                                            <option value="1">1 </option>
+                                        </select>
+                            </div>
+                        </div>
+                        <!--fin segunda linea-->
+                        <!--tercera linea-->
+                        <div class="row form-group">
+                            <label class=" col-xs-12 col-md-2 control-label">Pais de Procedencia</label>
+                            <div class="col-xs-10 col-md-2">
+                                <div class="row">
+                                    <div class="col-xs-10 col-md-8">
+                                        <input type="text" class="form-control" placeholder="0"  onkeypress='return ((event.charCode <= 96 || event.charCode >= 123) && (event.charCode <= 64 || event.charCode >= 91))'>
+                                    </div>
+                                </div> 
+                            </div>
+<!--                            <div class="col-xs-2 col-md-1">
+                                <button type="button" class="btn btn-info btn-md center-block">
+                                    <span class="glyphicon glyphicon-search"></span> 
+                                </button>
+                            </div>-->
+                            <div class="col-xs-12 col-md-3">
+                                    <select  class="form-control"id="slprocedencia" name="slprocedencia">
+                                            <option value=""></option>
+                                            <option value="0">0 </option>
+                                            <option value="1">1 </option>
+                                    </select>
+                            </div>
+                        </div>
+                        <!--                    fin tercera linea-->
+                        <!--                    cuarta linea-->
+                        <div class="row form-group">
+                            <label class=" col-xs-12 col-md-2 control-label">Via de Transporte</label>
+                            <div class="col-xs-10 col-md-2">
+                                <div class="row">
+                                    <div class="col-xs-10 col-md-8">
+                                        <input type="text" class="form-control" placeholder="0"  onkeypress='return ((event.charCode <= 96 || event.charCode >= 123) && (event.charCode <= 64 || event.charCode >= 91))'>
+                                    </div>
+                                </div> 
+                            </div>
+<!--                            <div class="col-xs-2 col-md-1">
+                                <button type="button" class="btn btn-info btn-md center-block">
+                                    <span class="glyphicon glyphicon-search"></span> 
+                                </button>
+                            </div>-->
+                            <div class="col-xs-12 col-md-3">
+                                <select  class="form-control"id="sltransporte" name="sltransporte">
+                                            <option value=""></option>
+                                            <option value="0">0 </option>
+                                            <option value="1">1 </option>
+                                        </select>
+                            </div>
+                        </div>
+                        <!--fin cuarta linea-->
+                        <!--                        inicio quinta linea-->
+                        <div class="row form-group">
+                            <label class=" col-xs-12 col-md-2 control-label">Moneda</label>
+                            <div class="col-xs-10 col-md-2">
+                                <div class="row">
+                                    <div class="col-xs-10 col-md-8">
+                                        <input type="text" class="form-control" placeholder="0"  onkeypress='return ((event.charCode <= 96 || event.charCode >= 123) && (event.charCode <= 64 || event.charCode >= 91))'>
+                                    </div>
+                                </div>                             </div>
+<!--                            <div class="col-xs-2 col-md-1">
+                                <button type="button" class="btn btn-info btn-md center-block">
+                                    <span class="glyphicon glyphicon-search"></span> 
+                                </button>
+                            </div>-->
+                            <div class="col-xs-12 col-md-3">
+                                <select  class="form-control"id="slmoneda" name="slmoneda">
+                                            <option value=""></option>
+                                            <option value="0">0 </option>
+                                            <option value="1">1 </option>
+                                        </select>
+                            </div>
+                        </div>
+                        <!--                        fin quinta linea-->
+                        <!--                        inicio sexta linea-->
+                        <div class="row form-group">
+                            <label class=" col-xs-12 col-md-2 control-label">Proveedor</label>
+                            <div class="col-xs-10 col-md-2">
+                                <input type="text" class="form-control">
+                            </div>
+<!--                            <div class="col-xs-2 col-md-1">
+                                <button type="button" class="btn btn-info btn-md center-block">
+                                    <span class="glyphicon glyphicon-search"></span> 
+                                </button>
+                            </div>-->
+                            <div class="col-xs-12 col-md-3">
+                                <select  class="form-control"id="slproveedor" name="slproveedor">
+                                            <option value=""></option>
+                                            <option value="0">0 </option>
+                                            <option value="1">1 </option>
+                                        </select>
+                            </div>
+                        </div>
                 </div>
 
             </div>
